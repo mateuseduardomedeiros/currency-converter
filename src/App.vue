@@ -20,9 +20,12 @@ export default {
     Nav,
     Card,
   },
-
-  data: () => ({
-    //
-  }),
+  created() {
+    // init dark 
+    if (!localStorage.dark) {
+      localStorage.dark = 'true';
+      this.$vuetify.theme.dark = true;
+    }
+  },
 };
 </script>

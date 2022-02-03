@@ -46,7 +46,10 @@
                 <span>{{ item.code }}/{{ item.description }}</span>
               </template>
             </v-select>
-            <v-icon large>mdi-arrow-down-bold</v-icon>
+            <v-btn @click.stop="swap()" icon color="#0D47A1">
+              <v-icon medium>mdi-swap-vertical-bold</v-icon>
+            </v-btn>
+
             <v-select
               class="selects mt-5"
               outlined
@@ -195,6 +198,11 @@ export default {
   },
   async mounted() {},
   methods: {
+    swap() {
+      let aux = this.to;
+      this.to = this.from;
+      this.from = aux;
+    },
     async lastSevenDays() {
       let auxData = [];
       let auxLabels = [];
